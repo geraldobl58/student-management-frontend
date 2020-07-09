@@ -1,7 +1,15 @@
 import React from 'react';
 
+import Global from './styles/global';
+import Login from './pages/Login';
+
 function App() {
-  return <h1>React</h1>;
+  return (
+    <>
+      <Global />
+      <Login />
+    </>
+  );
 }
 
 export default App;
