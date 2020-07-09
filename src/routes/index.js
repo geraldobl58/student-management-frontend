@@ -9,7 +9,7 @@ import NotFound from '../pages/NotFound';
 export default function Routes() {
   return (
     <Switch>
-      <MyRoute exact path="/" component={Login} isClosed />
+      <MyRoute exact path="/" component={Login} />
       <MyRoute path="*" component={NotFound} />
     </Switch>
   );
