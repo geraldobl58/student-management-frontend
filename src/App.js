@@ -13,7 +13,7 @@ function App() {
       <Global />
       <Header />
       <Routes />
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={5000} />
     </Router>
   );
 }

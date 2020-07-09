@@ -38,10 +38,19 @@ export default createGlobalStyle`
     color: ${primaryColor};
   }
 
+  .Toastify__toast-body {
+    font-size: 12px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+  }
+  .Toastify__toast--error {
+    background: #6b0d0d;
+  }
+
 `;
 
 export const Container = styled.section`
-  max-width: 1200px;
+  max-width: 800px;
   margin: 30px auto;
   background: #fff;
   padding: 20px;
