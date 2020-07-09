@@ -8,7 +8,7 @@ export default function Header() {
     <Nav>
       <div className="logo">student management</div>
       <div className="navigation">
-        <Link to="/">Alunos</Link>
+        <Link to="/">Estudantes</Link>
         <Link to="/register">Registrar</Link>
         <Link to="/login">Login</Link>
       </div>
