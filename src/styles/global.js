@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import { primaryColor, primaryGreyColor } from '../config/colors';
+
 export default createGlobalStyle`
 
   * {
@@ -10,7 +12,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #e0e0e0;
+    background: ${primaryGreyColor};
     font-family: 'Lato', sans-serif;
   }
 
@@ -20,6 +22,9 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background: ${primaryColor};
   }
 
   ul {
@@ -28,6 +33,7 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    color: ${primaryColor};
   }
 
 `;
