@@ -1,5 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+
+import MyRoute from './MyRoute';
 
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
@@ -7,8 +9,8 @@ import NotFound from '../pages/NotFound';
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={Login} />
-      <Route path="*" component={NotFound} />
+      <MyRoute exact path="/" component={Login} isClosed />
+      <MyRoute path="*" component={NotFound} />
     </Switch>
   );
 }
