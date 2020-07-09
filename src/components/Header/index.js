@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { FaHome, FaUserAlt, FaSignInAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaSignInAlt } from 'react-icons/fa';
 
 import { Nav } from './styled';
 
@@ -9,11 +9,11 @@ export default function Header() {
     <Nav>
       <div className="logo">student management</div>
       <div className="navigation">
-        <a href="">Home</a>
-        <a href="">Login</a>
-        <a href="">
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/logout">
           <FaSignInAlt />
-        </a>
+        </Link>
       </div>
     </Nav>
   );
