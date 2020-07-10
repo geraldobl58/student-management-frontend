@@ -9,19 +9,25 @@ import { StudentsContainer } from './styled';
 
 import { Container } from '../../styles/global';
 
+import Loading from '../../components/Loading';
+
 export default function Students() {
   const [students, setStudents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
+      setIsLoading(true);
       const response = await api.get('/students');
       setStudents(response.data);
+      setIsLoading(false);
     }
     getData();
   }, []);
 
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Estudantes</h1>
       <StudentsContainer>
         {students.map((student) => (

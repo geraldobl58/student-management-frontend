@@ -9,10 +9,13 @@ import { Form } from './styled';
 import api from '../../services/api';
 import history from '../../services/history';
 
+import Loading from '../../components/Loading';
+
 export default function Register() {
   const [firstname, setFirstname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -37,6 +40,8 @@ export default function Register() {
 
     if (formErrors) return;
 
+    setIsLoading(true);
+
     try {
       await api.post('/users', {
         firstname,
@@ -44,16 +49,18 @@ export default function Register() {
         password,
       });
       toast.success('Registro realizado com sucesso!');
+      setIsLoading(false);
       history.push('/login');
     } catch (err) {
       const errors = get(err, 'response.data.errors', []);
-
       errors.map((error) => toast.error(error));
+      setIsLoading(false);
     }
   }
 
   return (
     <Container>
+      <Loading isLoading={isLoading} />
       <h1>Registre-se</h1>
       <Form onSubmit={handleSubmit}>
         <label htmlFor="firstname">
