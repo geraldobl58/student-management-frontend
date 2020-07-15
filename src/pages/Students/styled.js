@@ -29,13 +29,13 @@ export const StudentsContainer = styled.ul`
       color: ${primaryColor};
     }
 
-    p {
-      .edit {
-        color: ${warningColor};
-      }
-      .trash {
-        color: ${errorColor};
-      }
+    .edit {
+      color: ${warningColor};
+    }
+    .trash {
+      color: ${errorColor};
+    }
+    .exclamation {
     }
   }
 `;
