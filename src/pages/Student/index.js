@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { get } from 'lodash';
+import { FaUserCircle, FaEdit } from 'react-icons/fa';
 import { isEmail, isInt, isFloat } from 'validator';
 import PropTypes from 'prop-types';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { ContainerWrapper, Form } from './styled';
+import { ContainerWrapper, Form, ProfilePicture } from './styled';
 import { Container } from '../../styles/global';
 
 import api from '../../services/api';
@@ -26,8 +28,7 @@ export default function Student({ match }) {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  const firstnameStored = useSelector((state) => state.auth.user.firstname);
+  const [photo, setIsPhoto] = useState('');
 
   useEffect(() => {
     if (!id) return;
@@ -36,7 +37,7 @@ export default function Student({ match }) {
       try {
         setIsLoading(true);
         const response = await api.get(`/students/${id}`);
-        const photo = get(response, 'Photo[0].url', '');
+        const avatar = get(response.data, 'Files[0].url', '');
 
         setFirstname(response.data.firstname);
         setLastname(response.data.lastname);
@@ -44,6 +45,7 @@ export default function Student({ match }) {
         setAge(response.data.age);
         setWeight(response.data.weight);
         setHeight(response.data.height);
+        setIsPhoto(avatar);
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
@@ -141,12 +143,24 @@ export default function Student({ match }) {
         <h1>
           {id ? (
             <p>
-              Editando estudante <small>{firstnameStored}</small>
+              Editando estudante <small>{firstname}</small>
             </p>
           ) : (
             'Novo Estudante'
           )}
         </h1>
+        {id && (
+          <ProfilePicture>
+            {photo ? (
+              <img src={photo} alt={firstname} />
+            ) : (
+              <FaUserCircle size={100} className="avatar" />
+            )}
+            <Link to={`/photos/${id}`}>
+              <FaEdit color="#59bac3" />
+            </Link>
+          </ProfilePicture>
+        )}
       </ContainerWrapper>
       <Form onSubmit={handleSubmit}>
         <input

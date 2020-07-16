@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { primaryColor } from '../../config/colors';
 
 export const ContainerWrapper = styled.div`
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
   small {
     font-size: 12px;
   }
@@ -45,5 +48,15 @@ export const Form = styled.form`
     &:hover {
       background: #129da5;
     }
+  }
+`;
+
+export const ProfilePicture = styled.div`
+  display: flex;
+
+  img {
+    width: 200px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 5px 1px #ccc;
   }
 `;
