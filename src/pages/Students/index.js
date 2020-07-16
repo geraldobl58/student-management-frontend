@@ -6,7 +6,7 @@ import { FaUserCircle, FaEdit, FaTrash, FaExclamation } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
 
-import { StudentsContainer } from './styled';
+import { StudentsContainer, WrapperTop, NewLink } from './styled';
 
 import { Container } from '../../styles/global';
 
@@ -56,7 +56,10 @@ export default function Students() {
   return (
     <Container>
       <Loading isLoading={isLoading} />
-      <h1>Estudantes</h1>
+      <WrapperTop>
+        <h1>Estudantes</h1>
+        <NewLink to="/student/">Adicionar</NewLink>
+      </WrapperTop>
       <StudentsContainer>
         {students.map((student, index) => (
           <li key={student.id}>

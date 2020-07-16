@@ -25,6 +25,7 @@ export const Container = styled.div`
   }
 
   img {
+    width: 80px;
     border-radius: 100%;
   }
 `;

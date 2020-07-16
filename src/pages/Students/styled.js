@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 import { primaryColor, warningColor, errorColor } from '../../config/colors';
 
 export const StudentsContainer = styled.ul`
@@ -38,4 +40,17 @@ export const StudentsContainer = styled.ul`
     .exclamation {
     }
   }
+`;
+
+export const WrapperTop = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const NewLink = styled(Link)`
+  color: #222;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
 `;
